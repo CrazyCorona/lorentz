@@ -5,7 +5,7 @@ var c=28;
 var dx;
 var dy;
 var dz;
-var dt=0.01;
+var dt=0.005;
 
 var x=0.01;
 var y=0.01;
@@ -13,7 +13,7 @@ var z=0.01;
 var r=0.3;
 
 var arr=[];
-
+var arrsize=100000;
 var s=5;
 function Vector3(x,y,z){
 	this.x=x;
@@ -31,6 +31,11 @@ function draw(){
 	scale(s);
   rotateY(frameCount * dt);
 
+	if(arr.length==arrsize)
+	{
+		shiftArr();
+	}
+	
 for(var i=0;i<arr.length;i++){
   push();
   translate(arr[i].x,arr[i].y,arr[i].z);
@@ -49,3 +54,13 @@ for(var i=0;i<arr.length;i++){
 
 
 }
+
+function shiftArr()
+{
+	for(var j=1;j<arr.length;j++)
+	{
+		arr[j-1]=arr[j];
+	}
+	arr.splice(arr.length-1,1);
+}
+
