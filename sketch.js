@@ -5,7 +5,7 @@ var c=28;
 var dx;
 var dy;
 var dz;
-var dt=0.1;
+var dt=0.01;
 
 var x=0.01;
 var y=0.01;
